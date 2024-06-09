@@ -31,7 +31,7 @@
 from app.parser import ParserContext
 
 if __name__ == "__main__":
-    with ParserContext("examples/requirements.txt") as parser:
-        # with ParserContext("pyproject.toml") as parser:
+    # with ParserContext("examples/requirements.txt") as parser:
+    with ParserContext("pyproject.toml") as parser:
         data = parser.parse()
         print(data)

@@ -127,8 +127,8 @@ class TextDependenciesParser(DependenciesParser):
 class YamlDependenciesParser(DependenciesParser):
     def _validate_path(self) -> None:
         super()._validate_path()
-        if not self.path.endswith(".yml") or not self.path.endswith(".yaml"):
-            raise ValueError(f"The file at path {self.path} is not .yml file.")
+        if not self.path.endswith((".yml", ".yaml")):
+            raise ValueError(f"The file at path {self.path} is not .yml or .yaml file.")
 
     def _create_informer(self):
         return PubPackageInfoInformer()
