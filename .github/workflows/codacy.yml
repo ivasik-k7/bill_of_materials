@@ -1,0 +1,23 @@
+name: Codacy Coverage
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: codacy-coverage-reporter
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run codacy-coverage-reporter
+        uses: ./
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reporter-version: 13.13.15
