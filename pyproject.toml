@@ -12,6 +12,24 @@ requests = "^2.32.3"
 coverage = "^7.5.3"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+ruff = "^0.4.8"
+pytest-cov = "^5.0.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff.lint]
+select = [
+    "F",  # Pyflakes: general errors
+    "E",  # PEP8: style errors
+    "W",  # PEP8: warnings
+    "C90",  # Miscellaneous: custom checks
+]
+
+ignore = [
+    "E501",  # Line too long
+]

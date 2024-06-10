@@ -18,7 +18,7 @@ class PubPackageInfoInformer(PackageInfoInformer):
         url = f"https://pub.dev/api/packages/{package_name}"
         if package_version:
             url += f"/versions/{package_version}"
-        response = requests.get(url)
+        response = requests.get(url, timeout=5)
         if response.status_code == 200:
             return response.json()
         else:
@@ -28,7 +28,7 @@ class PubPackageInfoInformer(PackageInfoInformer):
 class PyPackageInfoInformer(PackageInfoInformer):
     def request_info(self, package_name, package_version=None) -> dict | None:
         url = f"https://pypi.org/pypi/{package_name}/json"
-        response = requests.get(url)
+        response = requests.get(url, timeout=5)
         if response.status_code == 200:
             data = response.json()
             if package_version:
